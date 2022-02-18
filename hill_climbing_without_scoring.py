@@ -4,14 +4,14 @@
 
 import datetime
 
-stoping_count=100
+stoping_count=1000000
 
 
 # file_name='a_an_example'
 # file_name='b_basic'
 # file_name='c_coarse'
-# file_name='d_difficult'
-file_name='e_elaborate'
+file_name='d_difficult'
+# file_name='e_elaborate'
 
 file_name_in = f'{file_name}.in.txt'
 
@@ -256,22 +256,24 @@ def make_max_pizza_client_like(client):
 
 import secrets
 
+count=0
 
+def hill_climb():
+    global count
+    count+=1
+    if not count%10 :
+        print(count)
+
+    client = secrets.choice(Clients)
+
+    make_max_pizza_client_like(client)
 
 
 def hill_climbing():
 
-    count=0
-
+    
     while(count<stoping_count):
-
-        count+=1
-
-        # print(count)
-
-        client = secrets.choice(Clients)
-
-        make_max_pizza_client_like(client)
+        hill_climb()
 
         # if will_buy_pizza(client, max_pizza):
         #     pass
@@ -307,7 +309,7 @@ output_pizza=make_pizza(max_pizza)
 
 print(f'max score: {max_score}')
 
-file_name_out=f'{file_name}.out.{max_score}.txt'
+file_name_out=f'output/{file_name}.out.{max_score}.txt'
 
 def save_pizza(pizza):
     

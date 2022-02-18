@@ -13,7 +13,7 @@ file_name='c_coarse'
 # file_name='e_elaborate'
 
 file_name_in = f'{file_name}.in.txt'
-file_name_out=f'{file_name}.out.txt'
+file_name_out=f'output/{file_name}.out.txt'
 
 
 start = datetime.datetime.now()

@@ -4,7 +4,7 @@
 
 import datetime
 
-stoping_count=100
+stoping_count=10000
 
 # file_name='a_an_example'
 # file_name='b_basic'
@@ -267,8 +267,8 @@ count=0
 def hill_climb():
     global count
     count+=1
-    # if not count%10 :
-    #     print(f"{count} {max_pizza_score}")
+    if not count%100 :
+        print(f"{count} {max_pizza_score}")
 
     client = secrets.choice(Clients)
 
@@ -331,7 +331,7 @@ end = datetime.datetime.now()
 
 timetaken=end-start
 
-file_name_out=f'{file_name}.out.Score.{max_score}.txt'
+file_name_out=f'output/{file_name}.out.{max_score}.txt'
 
 # file_name_out=f'{file_name}.out.Score.{max_score}.Iteration.{stoping_count}.Time.{timetaken}.txt'
 
