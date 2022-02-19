@@ -4,13 +4,17 @@
 
 import datetime
 
-stoping_count=10000
+stoping_count=1000
 
 # file_name='a_an_example'
 # file_name='b_basic'
 # file_name='c_coarse'
 # file_name='d_difficult'
 file_name='e_elaborate'
+
+use_old_output=False
+
+use_old_output_file=f'output/{file_name}.out.txt'
 
 file_name_in = f'{file_name}.in.txt'
 # file_name_out=f'{file_name}.out.txt'
@@ -222,6 +226,25 @@ def will_buy_pizza(client, pizza):
 
 max_pizza=[]
 max_pizza_score=0
+
+
+if use_old_output:
+
+    
+
+    with open(use_old_output_file, "r") as f:
+        Line = f.readline()
+
+    pizza_lines=Line.split()[1:]
+
+    # print(f'Out Pizza: {pizza_lines}')
+    print(f'Out Pizza Ingredients: {len(pizza_lines)}')
+
+    max_pizza=[get_ingredient_index_from_name(pizza_ingredient) for pizza_ingredient in pizza_lines]
+
+
+
+    max_pizza_score=return_score(max_pizza)
 
 
 
