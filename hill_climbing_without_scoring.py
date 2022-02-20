@@ -4,14 +4,14 @@
 
 import datetime
 
-stoping_count=1000000
+stoping_count=1000
 
 
 # file_name='a_an_example'
 # file_name='b_basic'
 # file_name='c_coarse'
-file_name='d_difficult'
-# file_name='e_elaborate'
+# file_name='d_difficult'
+file_name='e_elaborate'
 
 file_name_in = f'{file_name}.in.txt'
 
@@ -261,7 +261,7 @@ count=0
 def hill_climb():
     global count
     count+=1
-    if not count%10 :
+    if not count%100 :
         print(count)
 
     client = secrets.choice(Clients)

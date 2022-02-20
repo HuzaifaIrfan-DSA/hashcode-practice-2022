@@ -4,13 +4,13 @@
 
 import datetime
 
-stoping_count=1000
+stoping_count=100000
 
 # file_name='a_an_example'
 # file_name='b_basic'
 # file_name='c_coarse'
-# file_name='d_difficult'
-file_name='e_elaborate'
+file_name='d_difficult'
+# file_name='e_elaborate'
 
 use_old_output=False
 
@@ -180,7 +180,7 @@ for i in range(1,len(Lines),2):
     create_client(liked_ingredients,disliked_ingredients)
 
 
-# print(Clients)
+print(len(Clients))
 
 
 
@@ -269,7 +269,7 @@ def make_max_pizza_client_like(client):
 
     
     temp_score = return_score(temp_max_pizza)
-    if temp_score > max_pizza_score:
+    if temp_score >= max_pizza_score:
         max_pizza_score=temp_score
         max_pizza=temp_max_pizza
 
