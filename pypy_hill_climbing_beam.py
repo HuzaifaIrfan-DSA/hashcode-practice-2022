@@ -3,6 +3,9 @@
 
 
 import datetime
+from random import randint
+
+max_beam_value=5
 
 stoping_count=10000
 
@@ -11,6 +14,9 @@ stoping_count=10000
 # file_name='c_coarse'
 # file_name='d_difficult'
 file_name='e_elaborate'
+
+
+# beam_value=5
 
 use_old_output=False
 
@@ -248,30 +254,61 @@ if use_old_output:
 
 
 
-def make_max_pizza_client_like(client):
+def make_max_pizza_random_clients_like():
 
     global max_pizza_score
     global max_pizza
 
-    temp_max_pizza=max_pizza.copy()
+    global max_beam_value
 
-    for liked_ingredient in client[0]:
-        # print(f'liked: {get_ingredient_name(liked_ingredient)}')
-        if liked_ingredient not in temp_max_pizza:
-            # print('not in pizza')
-            temp_max_pizza.append(liked_ingredient)
+    beam_value=randint(1,max_beam_value)
+    # temp_beams=[]
 
-    for disliked_ingredient in client[1]:
-        # print(f'disliked: {get_ingredient_name(disliked_ingredient)}')
-        if disliked_ingredient in temp_max_pizza:
-            # print('in pizza')
-            temp_max_pizza.remove(disliked_ingredient)
+    temp_beam_pizza=max_pizza.copy()
+    temp_pizza_score=0
+
+    for i in range(beam_value):
+
+
+        client = secrets.choice(Clients)
+
+
+
+        
+
+        for liked_ingredient in client[0]:
+            # print(f'liked: {get_ingredient_name(liked_ingredient)}')
+            if liked_ingredient not in temp_beam_pizza:
+                # print('not in pizza')
+                temp_beam_pizza.append(liked_ingredient)
+
+        for disliked_ingredient in client[1]:
+            # print(f'disliked: {get_ingredient_name(disliked_ingredient)}')
+            if disliked_ingredient in temp_beam_pizza:
+                # print('in pizza')
+                temp_beam_pizza.remove(disliked_ingredient)
+
+        
+    temp_pizza_score = return_score(temp_beam_pizza)
+
+        # temp_beams.append([temp_beam_pizza,temp_beam_score])
+
 
     
-    temp_score = return_score(temp_max_pizza)
-    if temp_score >= max_pizza_score:
-        max_pizza_score=temp_score
-        max_pizza=temp_max_pizza
+
+
+    # for temp_beam in temp_beams:
+
+    #     if temp_beam[1] >=temp_pizza_score:
+    #         temp_pizza_score=temp_beam[1]
+    #         temp_max_pizza=temp_beam[0]
+            
+
+
+    
+    if temp_pizza_score >= max_pizza_score:
+        max_pizza_score=temp_pizza_score
+        max_pizza=temp_beam_pizza
 
 
 
@@ -293,9 +330,8 @@ def hill_climb():
     if not count%100 :
         print(f"{count} {max_pizza_score}")
 
-    client = secrets.choice(Clients)
 
-    make_max_pizza_client_like(client)
+    make_max_pizza_random_clients_like()
 
 
 def hill_climbing():

@@ -8,8 +8,8 @@ import datetime
 # file_name='a_an_example'
 # file_name='b_basic'
 # file_name='c_coarse'
-file_name='d_difficult'
-# file_name='e_elaborate'
+# file_name='d_difficult'
+file_name='e_elaborate'
 
 
 file_name_in = f'{file_name}.in.txt'
@@ -17,7 +17,7 @@ file_name_out=f'output/{file_name}.out.txt'
 
 
 
-start = datetime.datetime.now()
+
 # print(f'Started {start}')
 
 
@@ -204,6 +204,9 @@ print(f'Out Pizza Ingredients: {len(pizza_lines)}')
 
 pizza=[get_ingredient_index_from_name(pizza_ingredient) for pizza_ingredient in pizza_lines]
 
+
+start = datetime.datetime.now()
+
 for client in Clients:
     # print(client)
 
@@ -212,14 +215,14 @@ for client in Clients:
 
 
 
-
+end = datetime.datetime.now()
 
 print(f'Filename: {file_name}')
 print(f'Final Score: {score}')
 
 
 
-end = datetime.datetime.now()
+
 # print(f'Ended {end}')
 
 timetaken=end-start
