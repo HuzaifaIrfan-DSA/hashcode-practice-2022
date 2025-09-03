@@ -1,8 +1,7 @@
 # Hashcode Practice 2022
 
 ## 📦 Hashcode Qualification 2022
-
-https://github.com/HuzaifaIrfan-DSA/hashcode-qualification-2022
+https://github.com/HuzaifaIrfan-DSA/hashcode-2022-qualification-round
 
 # 📚 References
 https://github.com/pierreavn/google-hashcode-archive/tree/main/archive/2022/practice
